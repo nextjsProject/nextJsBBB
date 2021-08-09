@@ -18,12 +18,22 @@ export default function LocationFinder() {
   const [mapCenter, setMapCenter] = useState(defaultCenter);
   const [zoom, setZoom] = useState(defaultZoom);
   const [userLocation, setUserLocation] = useState(null);
-  // const [locations, setLocations] = useState(Berlin);
   const [locations, setLocations] = useState(cimdataLocations);
   const [showDetails, toogleShowDetails] = useToggle(false);
-  const [buttonText, setButtonText] = useState(
-    'zeige meinen Standort und Bäder in meiner Nähe'
-  );
+
+  useEffect(() => {
+    async function switchDisplay() {
+      if (showDetails) {
+        showUserLocation();
+      } else {
+        setMapCenter(defaultCenter);
+        setZoom(defaultZoom);
+        setLocations(cimdataLocations);
+        setUserLocation(null);
+      }
+    }
+    switchDisplay();
+  }, [showDetails]);
 
   // Prüfen, ob das Gerät Geolocation unterstützt
   const navigatorAvailable = Boolean(window?.navigator?.geolocation);
@@ -108,10 +118,6 @@ export default function LocationFinder() {
       <button
         onClick={() => {
           toogleShowDetails();
-          showUserLocation();
-          if (buttonText === 'zeige alle Bäder') {
-            window.location.reload();
-          }
         }}
       >
         {showDetails
