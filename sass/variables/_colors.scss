@@ -1,0 +1,24 @@
+$nearly-black: hsl(0, 0%, 6%);
+$black-fog: hsla(0, 0%, 100%, 0.1);
+$bg-color: hsl(0, 0%, 16%);
+$black: hsl(0, 0%, 0%);
+$nearly-white: hsl(0, 0%, 94%);
+$white: hsl(0, 0%, 100%);
+$green: hsl(122, 39%, 49%);
+$orange: hsl(39, 100%, 50%);
+$gold: hsl(51, 100%, 50%);
+$creme: hsl(38, 100%, 89%);
+$creme-orig: hsl(60, 31%, 69%);
+
+:root {
+  --bg-black: #{$nearly-black};
+  --bg-black-fog: #{$black-fog};
+  --bg-color: #{$bg-color};
+  --link-color: #{$green};
+  --hover-color: #{$gold};
+  --text-color: #{$creme};
+  --nav-color: #{$nearly-black};
+  --logo-color: #{$nearly-black};
+  --input-color: #{$nearly-white};
+  --light-bg-color: #{$creme};
+}

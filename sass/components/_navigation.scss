@@ -1,0 +1,27 @@
+.site-navigation {
+  width: 100%;
+  min-height: 2rem;
+  background: var(--link-color);
+  text-align: center;
+  padding: 0;
+
+  a {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--bg-black);
+    -webkit-text-stroke: 0.01rem var(--bg-black);
+    letter-spacing: 0.02rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    &:not(:last-of-type) {
+      justify-content: space-between;
+    }
+    &:hover,
+    &:focus {
+      background-color: var(--hover-color);
+      color: var(--bg-black);
+    }
+  }
+}

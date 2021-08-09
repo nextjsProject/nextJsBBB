@@ -1,0 +1,17 @@
+.site-main {
+  /* Teil des Sticky Footers: Sorgt dafür, dass der "mittlere" Bereich, also der Inhalt
+      anwächst, falls freier Platz zwischen Inhalt und Footer besteht.
+      Eigentlich würde auch flex: 1; genügen, aber der alte Internet Explorer
+      hat einen Bug... Ist heute zum Glück nicht mehr sehr relevant, aber bei
+      Problemen ist hier eine Übersicht zu Bugs und möglichen Lösungen zu finden:
+      https://github.com/philipwalton/flexbugs 
+    */
+  flex: 10 0 auto;
+
+  // background: radial-gradient(var(--bg-black) 15%, transparent 16%) 0 0,
+  //   radial-gradient(var(--bg-black) 15%, transparent 16%) 8px 8px,
+  //   radial-gradient(var(--bg-black-fog) 15%, transparent 20%) 0 1px,
+  //   radial-gradient(var(--bg-black-fog) 15%, transparent 20%) 8px 9px;
+  // background-size: 16px 16px;
+  background-color: var(--bg-color);
+}
