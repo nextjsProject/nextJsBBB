@@ -21,8 +21,8 @@ export default function BadList({ baederWeb, title = '' }) {
         </h2>
       )}
       <div className="bad-grid">
-        {baederWeb.map((feature, index) => {
-          countBadNo = index + 2;
+        {baederWeb.map((feature) => {
+          countBadNo += 2;
           return (
             <BadItem
               key={feature.properties.id}

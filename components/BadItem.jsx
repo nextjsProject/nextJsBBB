@@ -32,6 +32,7 @@ export default function BadItem({ geometry, properties, countBadNo }) {
           className="bad-item__image"
           src={properties.description}
           alt="Bild zur Nachricht"
+          title="Bild zur Nachricht"
         />
         <p className="bad-item__description">
           {geometry.coordinates[1]}, {geometry.coordinates[0]}
@@ -40,10 +41,3 @@ export default function BadItem({ geometry, properties, countBadNo }) {
     </article>
   );
 }
-
-// function count() {
-//   for (let i = 0; i <= 78; i + 2) {
-//     baederID = baederID + 2;
-//     console.log(baederID);
-//   }
-// }
