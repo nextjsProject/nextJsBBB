@@ -12,7 +12,7 @@ export default function zipcode(req, res) {
 
 function getLocations(searchTerm) {
   /*  Datensatz filtern, zipcode ist ein String und kein Integer, da
-    PLZ mit 0 beginnen können. startsWith ist einen String-Methode, die
+    PLZ mit 0 beginnen können. startsWith ist eine String-Methode, die
     prüft, ob ein String mit einem anderen String beginnt, und entsprechend
     true oder false zurückgibt.
     Bei der Ortssuche wird ein Regulärer Ausdruck verwendet, um nicht nur den

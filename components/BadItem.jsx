@@ -5,14 +5,14 @@
 
 let baederID = 0;
 
-export default function BadItem({ geometry, properties }) {
+export default function BadItem({ geometry, properties, countBadNo }) {
   // const [showDetails, toogleShowDetails] = useToggle(false);
 
   return (
     <article className="bad-item">
       <h3 className="bad-item__title">
         <a
-          href={`https://www.badestellen.berlin.de/#/detail/${baederID}`}
+          href={`https://www.badestellen.berlin.de/#/detail/${countBadNo}`}
           target="_blank"
           rel="noreferrer"
         >

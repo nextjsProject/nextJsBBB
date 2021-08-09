@@ -3,12 +3,12 @@ import Link from 'next/link';
 export default function Navigation() {
   return (
     <nav className="site-navigation">
-      <Link href="/">
+      {/* <Link href="/">
         <a>Home</a>
-      </Link>
-      <Link href="/gallery">
+      </Link> */}
+      {/* <Link href="/gallery">
         <a>Galerie</a>
-      </Link>
+      </Link> */}
       <Link href="/baeder">
         <a>Bäder</a>
       </Link>
@@ -18,9 +18,9 @@ export default function Navigation() {
       <Link href="/textShuffler">
         <a>Fun-Stuff</a>
       </Link>
-      <Link href="/blog">
+      {/* <Link href="/blog">
         <a>Blog</a>
-      </Link>
+      </Link> */}
       <Link href="/impressum">
         <a>Impressum</a>
       </Link>
