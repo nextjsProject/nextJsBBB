@@ -12,7 +12,7 @@ export default function Navigation() {
       <Link href="/baeder">
         <a>Karten</a>
       </Link>
-      <Link href="/baeder">
+      <Link href="/places">
         <a>Places</a>
       </Link>
       <Link href="/plzfinder">
