@@ -1,29 +1,38 @@
 //
 import { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
-import MarkerClusterGroup from 'react-leaflet-markercluster';
-import cimdataLocations from '@/library/cimdataLocations';
+// import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { getDistance } from '@/library/helpers';
 import { useToggle } from '../hooks/useToggle';
 
 // const defaultCenter = { lat: 51.2963, lng: 12.3935 };
 const defaultCenter = { lat: 52.51754, lng: 13.39144 };
-const defaultZoom = 7;
+const defaultZoom = 10;
 
 // const defaultCenter = { lat: 51.1864708, lng: 10.0671016 };
 // const defaultZoom = 6;
 // const myPosition = { lat: 51.2963, lng: 12.3935 };
 
-export default function LocationFinder() {
+export default function LocationFinder({ baederWeb }) {
   const [mapCenter, setMapCenter] = useState(defaultCenter);
   const [zoom, setZoom] = useState(defaultZoom);
   const [userLocation, setUserLocation] = useState(null);
-  // const [locations, setLocations] = useState(Berlin);
-  const [locations, setLocations] = useState(cimdataLocations);
+  const [locations, setLocations] = useState(baederWeb);
   const [showDetails, toogleShowDetails] = useToggle(false);
-  const [buttonText, setButtonText] = useState(
-    'zeige meinen Standort und Bäder in meiner Nähe'
-  );
+
+  useEffect(() => {
+    async function switchDisplay() {
+      if (showDetails) {
+        showUserLocation();
+      } else {
+        setMapCenter(defaultCenter);
+        setZoom(defaultZoom);
+        setLocations(baederWeb);
+        setUserLocation(null);
+      }
+    }
+    switchDisplay();
+  }, [showDetails]);
 
   // Prüfen, ob das Gerät Geolocation unterstützt
   const navigatorAvailable = Boolean(window?.navigator?.geolocation);
@@ -52,11 +61,20 @@ export default function LocationFinder() {
   // https://de.reactjs.org/docs/faq-functions.html
   // showUserLocation();
 
-  console.log('LocationFinder');
+  function getLocationsInRadius(center, radius = 10) {
+    const locationsInRadius = baederWeb.filter(({ geometry }) => {
+      const distance = getDistance(
+        geometry.coordinates[1],
+        geometry.coordinates[0],
+        center.lat,
+        center.lng
+      );
+      console.log(geometry.coordinates[1], geometry.coordinates[0]);
+      return distance <= radius;
+    });
+    return locationsInRadius;
+  }
 
-  // Leaflet liefert keine Karten
-  // -> MapBox und maptiler (https://www.maptiler.com/) liefern kostenlose Karten
-  // -> die Kartendaten kommen von OpenStreetMap
   return (
     <section className="leaflet">
       {/* Die Props von MapContainer werden nur beim ersten Rendern der Karte
@@ -76,20 +94,23 @@ export default function LocationFinder() {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {/*
-    	Achtung: key für MarkerClusterGroup behebt einen Bug
-     	in der aktuellen Version. Ändernde Marker würden
-     	sonst nicht aktualisiert werden. Mit key
-     	wird die Komponenente zum neu rendern gezwungen.
-     	Testen, ob das in Zukunft noch nötig ist!
-    	*/}
-        <MarkerClusterGroup key={locations}>
-          {locations.map(({ title, latLng }) => (
-            <Marker key={title} position={latLng}>
-              <Popup>{title}</Popup>
-            </Marker>
-          ))}
-        </MarkerClusterGroup>
+        {/* <MarkerClusterGroup key={locations}> */}
+        {locations.map((feature) => (
+          <Marker
+            key={feature.properties.title}
+            position={{
+              lat: feature.geometry.coordinates[1],
+              lng: feature.geometry.coordinates[0],
+            }}
+          >
+            <Popup>
+              <strong>{feature.properties.title}</strong>
+              <br />
+              {feature.properties.data.bezirk}
+            </Popup>
+          </Marker>
+        ))}
+        {/* </MarkerClusterGroup> */}
 
         {userLocation && (
           <Marker
@@ -99,19 +120,14 @@ export default function LocationFinder() {
             }}
           >
             <Popup>
-              <i>selbst</i>
+              <i>mein Standort</i>
             </Popup>
           </Marker>
         )}
       </MapContainer>
-      {/* <button onClick={toogleShowDetails}> */}
       <button
         onClick={() => {
           toogleShowDetails();
-          showUserLocation();
-          if (buttonText === 'zeige alle Bäder') {
-            window.location.reload();
-          }
         }}
       >
         {showDetails
@@ -129,10 +145,6 @@ function MapController({ center, zoom }) {
   /* map enthält die Leaflet-Instanz. */
   const map = useMap();
   // console.log(map);
-
-  /* Hier werden Methoden der Leaflet-Bibliothek verwendet, ganz unabhängig von React!
-  https://leafletjs.com/reference-1.7.1.html#map-methods-for-modifying-map-state
-  */
 
   useEffect(() => map.setView(center, zoom), [center, zoom, map]);
   return null;
@@ -192,17 +204,4 @@ function UserLocation({ geoData }) {
       </div>
     </>
   );
-}
-
-function getLocationsInRadius(center, radius = 10) {
-  const locationsInRadius = cimdataLocations.filter(({ latLng }) => {
-    const distance = getDistance(
-      latLng.lat,
-      latLng.lng,
-      center.lat,
-      center.lng
-    );
-    return distance <= radius;
-  });
-  return locationsInRadius;
 }

@@ -1,18 +1,18 @@
 // https://www.badestellen.berlin.de/#/
+// Video: https://www.berlin.de/lageso/gesundheit/gesundheitsschutz/badegewaesser/
 
-// import Image from 'next/image';
-// import { useToggle } from '../hooks/useToggle';
+// https://www.berlin.de/lageso/gesundheit/gesundheitsschutz/badegewaesser/liste-der-badestellen/index.php/detail/4
 
-let baederID = 0;
+//https://www.umweltbundesamt.de/wasserqualitaet-in-badegewaessern#wie-erhalte-ich-informationen-zur-aktuellen-badegewasserqualitat
 
-export default function BadItem({ geometry, properties }) {
-  // const [showDetails, toogleShowDetails] = useToggle(false);
+// <iframe width="560" height="315" src="https://www.youtube.com/embed/G02JLwsBe4A?start=6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+export default function BadItem({ geometry, properties, countBadNo }) {
   return (
     <article className="bad-item">
       <h3 className="bad-item__title">
         <a
-          href={`https://www.badestellen.berlin.de/#/detail/${baederID}`}
+          href={`https://www.badestellen.berlin.de/#/detail/${countBadNo}`}
           target="_blank"
           rel="noreferrer"
         >
@@ -24,15 +24,31 @@ export default function BadItem({ geometry, properties }) {
         <br />
         Datum: {new Date(properties.data.dat).toLocaleDateString()}
       </div>
-      {/* <button onClick={toogleShowDetails}>
-          {showDetails ? 'Weniger anzeigen' : 'Mehr anzeigen'}
-        </button> */}
       <div className="bad-item__content">
-        <img
-          className="bad-item__image"
-          src={properties.description}
-          alt="Bild zur Nachricht"
-        />
+        <p>
+          <img
+            className="bad-item__image"
+            src={`./img/badestelle_${countBadNo}.jpg`}
+            alt="Bild zur Nachricht"
+            title="Bild zur Nachricht"
+          />
+        </p>
+        <p>
+          Qualität:{' '}
+          {/* {properties.data.farbe.substring(
+            properties.data.farbe.indexOf('.') + 1
+          )} */}
+          {properties.data.farbe.split('.')[0]}
+          <br />
+          Temperatur: {properties.data.temp} °C
+          <br />
+          Sichttiefe: {properties.data.sicht} cm
+          <br />
+          <br />
+          intestinale Enterokokken: {properties.data.ente} /100 ml
+          <br />
+          Escherichia coli: {properties.data.eco}/ 100 ml
+        </p>
         <p className="bad-item__description">
           {geometry.coordinates[1]}, {geometry.coordinates[0]}
         </p>
@@ -40,10 +56,3 @@ export default function BadItem({ geometry, properties }) {
     </article>
   );
 }
-
-// function count() {
-//   for (let i = 0; i <= 78; i + 2) {
-//     baederID = baederID + 2;
-//     console.log(baederID);
-//   }
-// }
