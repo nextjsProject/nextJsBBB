@@ -54,7 +54,7 @@ export async function getStaticProps() {
 export default function baeder({ grusz, time, baederWeb }) {
   //
   return (
-    <Layout title="Baden gehen... ">
+    <Layout title="Baden gehen... " description="">
       {grusz} - es ist {time}
       <br />
       <br />
