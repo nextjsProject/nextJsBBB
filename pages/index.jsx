@@ -10,7 +10,7 @@ export default function home() {
     // https://www.indifferentlanguages.com/de/wort/willkommen
     <Layout title="Website with NextJS">
       {/* inner-HTML sind die Kindelemente, die als children ausgelesen werden */}
-      <div className="header-main">
+      <div className="header-main home">
         <h2>
           Welome - Willkommen - Bienvenue - добро пожаловать - 欢迎 -
           καλωσόρισμα - მისასალმებელი - באַגריסן -{' '}

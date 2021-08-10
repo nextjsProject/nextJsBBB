@@ -28,6 +28,11 @@ body {
   color: var(--text-color);
   font-family: 'Calibri', 'Verdana', sans-serif;
   font-size: 1.1rem;
+
+  // aus Bootstrap-Navi
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 h1 {
@@ -56,25 +61,8 @@ button {
   font-family: 'Caviar', sans-serif;
 }
 
-button {
-  padding: 0.5em;
-  border-radius: 0.5em;
-  font-size: 1.2rem;
-  -webkit-text-stroke: 0.15rem var(--bg-black);
-  background-color: var(--hover-color);
-  color: var(--bg-black);
-  border: none;
-  box-shadow: none;
-  &[disabled] {
-    background: var(--bg-color);
-  }
-  &:hover,
-  &:focus {
-    background-color: var(--light-bg-color);
-  }
-}
-
 a {
+  cursor: pointer;
   color: var(--link-color);
   &:hover,
   &:focus {
