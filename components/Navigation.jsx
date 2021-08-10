@@ -10,7 +10,10 @@ export default function Navigation() {
         <a>Galerie</a>
       </Link> */}
       <Link href="/baeder">
-        <a>Bäder</a>
+        <a>Karten</a>
+      </Link>
+      <Link href="/baeder">
+        <a>Places</a>
       </Link>
       <Link href="/plzfinder">
         <a>PLZ-Suche</a>

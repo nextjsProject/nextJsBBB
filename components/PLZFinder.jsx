@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
-import cimdataLocations from '@/library/cimdataLocations';
+// import cimdataLocations from '@/library/cimdataLocations';
 import { getDistance } from '@/library/helpers';
 import { useToggle } from '../hooks/useToggle';
 
@@ -18,7 +18,8 @@ export default function PLZFinder() {
   const [mapCenter, setMapCenter] = useState(defaultCenter);
   const [zoom, setZoom] = useState(defaultZoom);
   const [userLocation, setUserLocation] = useState(null);
-  const [locations, setLocations] = useState(cimdataLocations);
+  // const [locations, setLocations] = useState(cimdataLocations);
+  const [locations, setLocations] = useState('');
   const [showDetails, toogleShowDetails] = useToggle(false);
 
   // Prüfen, ob das Gerät Geolocation unterstützt
@@ -54,11 +55,12 @@ export default function PLZFinder() {
      	Testen, ob das in Zukunft noch nötig ist!
     	*/}
         <MarkerClusterGroup key={locations}>
-          {locations.map(({ title, latLng }) => (
+          {/* locations basierten auf cimdata-Daten und ist jetzt leer */}
+          {/* {locations.map(({ title, latLng }) => (
             <Marker key={title} position={latLng}>
               <Popup>{title}</Popup>
             </Marker>
-          ))}
+          ))} */}
         </MarkerClusterGroup>
 
         {userLocation && (
@@ -105,15 +107,15 @@ function getUserLocation() {
   });
 }
 
-function getLocationsInRadius(center, radius = 10) {
-  const locationsInRadius = cimdataLocations.filter(({ latLng }) => {
-    const distance = getDistance(
-      latLng.lat,
-      latLng.lng,
-      center.lat,
-      center.lng
-    );
-    return distance <= radius;
-  });
-  return locationsInRadius;
-}
+// function getLocationsInRadius(center, radius = 10) {
+//   const locationsInRadius = cimdataLocations.filter(({ latLng }) => {
+//     const distance = getDistance(
+//       latLng.lat,
+//       latLng.lng,
+//       center.lat,
+//       center.lng
+//     );
+//     return distance <= radius;
+//   });
+//   return locationsInRadius;
+// }

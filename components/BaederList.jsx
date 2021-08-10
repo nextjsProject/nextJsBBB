@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { useState } from 'react';
 import BadItem from './BadItem';
 
 export default function BadList({ baederWeb, title = '' }) {
