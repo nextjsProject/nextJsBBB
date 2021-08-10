@@ -15,6 +15,9 @@ const LocationFinder = dynamic(() => import('@/components/LocationFinder'), {
 
 // const apiKey = process.env.NEWS_API_KEY;
 
+// entweder in der export-Funktion oder schon hier die Daten aus der lokalen Datei auslesen
+// -> const baederData = require('')... -> mühsam
+
 export async function getStaticProps() {
   // code, der nur auf dem Server läuft und im Browser nicht zu sehen ist
   let baederWeb = [];
@@ -25,7 +28,6 @@ export async function getStaticProps() {
       // beliebte News-API:
       // `https://newsapi.org/v2/top-headlines?apiKey=${apiKey}&country=de&category=technology&pageSize=10`// Bäder-API des LaGeSo Berlin:
       // urlWeb
-      // { BaederLocations }
       `https://www.berlin.de/lageso/gesundheit/gesundheitsschutz/badegewaesser/liste-der-badestellen/index.php/index/all.gjson?q=`
     );
 
@@ -58,7 +60,7 @@ export default function baeder({ grusz, time, baederWeb }) {
       <br />
       {/* {JSON.stringify(news)} */}
       {/* <NewsList news={news} title="aktuelle Meldungen" /> */}
-      <LocationFinder />
+      <LocationFinder baederWeb={baederWeb} />
       <BaederList
         baederWeb={baederWeb}
         title="Bäder in und um Berlin - Infos zu Standort und Qualität"
