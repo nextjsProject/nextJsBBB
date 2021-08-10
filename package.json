@@ -9,6 +9,9 @@
     "serve": "next build && next start"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.15",
     "@jnsdls/react-text-shuffle": "^0.1.1-alpha.15",
     "leaflet": "^1.7.1",
     "next": "11.0.1",

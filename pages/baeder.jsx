@@ -55,17 +55,19 @@ export default function baeder({ grusz, time, baederWeb }) {
   //
   return (
     <Layout title="Baden gehen... " description="">
-      {grusz} - es ist {time}
-      <br />
-      <br />
-      {/* {JSON.stringify(news)} */}
-      {/* <NewsList news={news} title="aktuelle Meldungen" /> */}
-      <LocationFinder baederWeb={baederWeb} />
-      <BaederList
-        baederWeb={baederWeb}
-        title="Bäder in und um Berlin - Infos zu Standort und Qualität"
-      />
-      <br />
+      <div className="site-main">
+        {grusz} - es ist {time}
+        <br />
+        <br />
+        {/* {JSON.stringify(news)} */}
+        {/* <NewsList news={news} title="aktuelle Meldungen" /> */}
+        <LocationFinder baederWeb={baederWeb} />
+        <BaederList
+          baederWeb={baederWeb}
+          title="Bäder in und um Berlin - Infos zu Standort und Qualität"
+        />
+        <br />
+      </div>
     </Layout>
   );
 }

@@ -1,11 +1,7 @@
-export function getFormattedPrice(price, currencySymbol = ' €') {
-  const formattedPrice =
-    (price / 100).toFixed(2).replace('.', ',') + currencySymbol;
-
-  return formattedPrice;
-}
-
-// Source: https://www.30secondsofcode.org/js/s/shuffle
+/*
+zufällige Anordnung von Zeichen einer Zeichenfolge bzw. von ganzen Zeichenfolgen
+Source: https://www.30secondsofcode.org/js/s/shuffle
+*/
 export function shuffle([...arr]) {
   let m = arr.length;
   while (m) {
@@ -15,11 +11,13 @@ export function shuffle([...arr]) {
   return arr;
 }
 
-/* Die exakte Berechnung der Distanz zwischen zwei Koordinaten ist nicht ganz trivial, da
+/* 
+Die exakte Berechnung der Distanz zwischen zwei Koordinaten ist nicht ganz trivial, da
 die Erde keine perfekte Kugel ist. Für die meisten Anwendungsfälle liefert die
 "Haversine-Formel" ausreichend genaue Ergebnisse. Hier eine leicht angepasste
 Version dieser Implementierung: http://www.geodatasource.com/developers/javascript
-Auf der Seite findet man auch Versionen für andere Sprachen, z.B. PHP. */
+Auf der Seite findet man auch Versionen für andere Sprachen, z.B. PHP. 
+*/
 export function getDistance(lat1, lon1, lat2, lon2, unit = 'K') {
   if (lat1 === lat2 && lon1 === lon2) {
     return 0;
@@ -47,7 +45,21 @@ export function getDistance(lat1, lon1, lat2, lon2, unit = 'K') {
   return dist;
 }
 
+/* 
+Ersetzen von Zeichen in Strings 
+*/
 export function replace(str, find, replace) {
   var escapedFind = find.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, '\\$1');
   return str.replace(new RegExp(escapedFind, 'g'), replace);
+}
+
+/* 
+Formatierung von Preisangaben 
+-> engl Punkt ersetzen durch Komma, 2 Nachkommastellen
+*/
+export function getFormattedPrice(price, currencySymbol = ' €') {
+  const formattedPrice =
+    (price / 100).toFixed(2).replace('.', ',') + currencySymbol;
+
+  return formattedPrice;
 }
