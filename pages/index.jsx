@@ -2,20 +2,42 @@
 // https://www.npmjs.com/package/node-geonames-client
 
 import Layout from '../components/Layout';
+import welcome from '@/img/willkommen.png';
+import Image from 'next/image';
 
 export default function home() {
   return (
-    <Layout title="Home">
+    // https://www.indifferentlanguages.com/de/wort/willkommen
+    <Layout title="Website with NextJS">
       {/* inner-HTML sind die Kindelemente, die als children ausgelesen werden */}
-      <p>Websites mit NextJS</p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corporis
-        similique iste, voluptatum maxime dolor pariatur quasi mollitia veniam
-        atque! Sequi error esse, maiores ad quo suscipit. Similique laboriosam
-        provident fugit sapiente sit, eveniet nesciunt modi non fuga. Quod
-        adipisci distinctio reiciendis dolores a pariatur earum mollitia, harum
-        facere delectus.
-      </p>
+      <div className="header-main">
+        <h2></h2>
+        <h2>
+          Welome - Willkommen - Bienvenue - добро пожаловать - 欢迎 -
+          καλωσόρισμα - მისასალმებელი - באַגריסן -{' '}
+        </h2>
+      </div>{' '}
+      <div className="intro">
+        <p>
+          Wir, Marco Grahl und Constanze Deten, haben hier Unterhaltsames für
+          den Aufenthalt in Berlin zusammengestellt.
+          <br />
+          <br />
+          Viel Vergnügen beim Stöbern!
+        </p>
+        <Image
+          // Wenn man ein Bild, das auf dem Server liegt, zuvor importiert
+          // und bei src einsetzt, kann man width und height weglassen.
+          src={welcome}
+          // width={5184}
+          // height={3456}
+          sizes="(max-width: 52rem) 90vw, 50rem"
+          layout="responsive"
+          placeholder="blur"
+          alt="Hong-Kong mit Bergen im Hintergrund"
+          title="Hong-Kong mit Bergen im Hintergrund"
+        />
+      </div>
     </Layout>
   );
 }
