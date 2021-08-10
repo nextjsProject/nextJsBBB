@@ -11,7 +11,6 @@ export default function home() {
     <Layout title="Website with NextJS">
       {/* inner-HTML sind die Kindelemente, die als children ausgelesen werden */}
       <div className="header-main">
-        <h2></h2>
         <h2>
           Welome - Willkommen - Bienvenue - добро пожаловать - 欢迎 -
           καλωσόρισμα - მისასალმებელი - באַגריסן -{' '}
