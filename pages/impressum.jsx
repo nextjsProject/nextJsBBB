@@ -45,7 +45,7 @@ export default function impressum() {
         </p>
         <p>
           Die Europ&auml;ische Kommission stellt eine Plattform zur
-          Online-Streitbeilegung (OS) bereit:
+          Online-Streitbeilegung (OS) bereit:&nbsp;
           <a href="http://ec.europa.eu/consumers/odr">
             http://ec.europa.eu/consumers/odr
           </a>
@@ -111,7 +111,7 @@ export default function impressum() {
         </p>
         <p>&nbsp;</p>
         <p>
-          Quelle: <a href="https://www.erecht24.de">e-recht24.de</a>
+          Quelle:&nbsp;<a href="https://www.erecht24.de">e-recht24.de</a>
         </p>
       </div>
       <div className="dasch">
@@ -226,7 +226,7 @@ export default function impressum() {
         </p>
         <p>
           Mehr Informationen zum Umgang mit Nutzerdaten bei Google Analytics
-          finden Sie in der Datenschutzerkl&auml;rung von Google:
+          finden Sie in der Datenschutzerkl&auml;rung von Google:&nbsp;
           <a href="https://support.google.com/analytics/answer/6004245?hl=de">
             https://support.google.com/analytics/answer/6004245?hl=de
           </a>
@@ -244,7 +244,7 @@ export default function impressum() {
           bezogenen Daten (inkl. Ihrer IP-Adresse) an Google sowie die
           Verarbeitung dieser Daten durch Google verhindern, indem Sie das unter
           dem folgenden Link verf&uuml;gbare Browser- Plugin herunterladen und
-          installieren:
+          installieren:&nbsp;
           <a href="https://tools.google.com/dlpage/gaoptout?hl=de">
             https://tools.google.com/dlpage/gaoptout?hl=de
           </a>
@@ -257,7 +257,7 @@ export default function impressum() {
           verhindern, indem Sie auf folgenden Link klicken. Es wird ein
           Opt-Out-Cookie gesetzt, der die Erfassung Ihrer Daten bei
           zuk&uuml;nftigen Besuchen dieser Website verhindert:
-          <a hre f="javascript:gaOptout();">
+          <a href={{ javascript: 'gaOptout()' }}>
             Google Analytics deaktivieren
           </a>
         </p>
@@ -358,14 +358,10 @@ export default function impressum() {
           <em>
             <strong>
               <a
-                styl
-                e="color:#F00;"
-                hre
-                f="http://piwik.org/docs/privacy/"
-                targe
-                t="_blank"
-                re
-                l="noreferrer"
+                style={{ color: '#F00' }}
+                href="http://piwik.org/docs/privacy/"
+                target="_blank"
+                rel="noreferrer"
               >
                 [Hier PIWIK iframe-Code einf&uuml;gen] (Klick f&uuml;r die
                 Anleitung)
@@ -515,7 +511,7 @@ export default function impressum() {
         </p>
         <p>
           Weitere Informationen hierzu finden Sie in der
-          Datenschutzerkl&auml;rung von LinkedIn unter:
+          Datenschutzerkl&auml;rung von LinkedIn unter:&nbsp;
           <a href="https://www.linkedin.com/legal/privacy-policy">
             https://www.linkedin.com/legal/privacy-policy
           </a>
@@ -539,7 +535,7 @@ export default function impressum() {
           Weitere Informationen zu Zweck, Umfang und weiterer Verarbeitung und
           Nutzung der Daten durch Pinterest sowie Ihre diesbez&uuml;glichen
           Rechte und M&ouml;glichkeiten zum Schutz Ihrer Privatsph&auml;re
-          finden Sie in den den Datenschutzhinweisen von Pinterest:
+          finden Sie in den den Datenschutzhinweisen von Pinterest:&nbsp;
           <a href="https://about.pinterest.com/de/privacy-policy">
             https://about.pinterest.com/de/privacy-policy
           </a>
@@ -566,7 +562,7 @@ export default function impressum() {
           als Anbieter der Seiten keine Kenntnis vom Inhalt der
           &uuml;bermittelten Daten sowie deren Nutzung durch SoundCloud
           erhalten. Weitere Informationen hierzu finden Sie in der
-          Datenschutzerkl&auml;rung von SoundCloud unter
+          Datenschutzerkl&auml;rung von SoundCloud unter:&nbsp;
           <a href="https://soundcloud.com/pages/privacy">
             https://soundcloud.com/pages/privacy
           </a>
@@ -590,7 +586,7 @@ export default function impressum() {
         </p>
         <p>
           Weitere Information zum Datenschutz und dem XING Share-Button finden
-          Sie in der Datenschutzerkl&auml;rung von XING unter
+          Sie in der Datenschutzerkl&auml;rung von XING unter:&nbsp;
           <a href="https://www.xing.com/app/share?op=data_protection">
             https://www.xing.com/app/share?op=data_protection
           </a>
@@ -635,7 +631,7 @@ export default function impressum() {
         </p>
         <p>
           Weitere Informationen zum Umgang von Nutzerdaten finden Sie in der
-          Datenschutzerkl&auml;rung von YouTube unter:
+          Datenschutzerkl&auml;rung von YouTube unter:&nbsp;
           <a href="https://www.google.de/intl/de/policies/privacy">
             https://www.google.de/intl/de/policies/privacy
           </a>
@@ -703,7 +699,7 @@ export default function impressum() {
         </p>
         <p>&nbsp;</p>
         <p>
-          Quelle: <a href="https://www.e-recht24.de">eRecht24</a>
+          Quelle:&nbsp;<a href="https://www.e-recht24.de">eRecht24</a>
         </p>
       </div>
     </Layout>

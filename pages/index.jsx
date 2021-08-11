@@ -21,7 +21,6 @@ export default function home() {
           Wir, Marco Grahl und Constanze Deten, haben hier Unterhaltsames für
           den Aufenthalt in Berlin zusammengestellt.
           <br />
-          <br />
           Viel Vergnügen beim Stöbern!
         </p>
         <Image
