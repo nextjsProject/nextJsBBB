@@ -3,7 +3,11 @@
 
 import Layout from '@/components/Layout';
 import BaederList from '@/components/BaederList';
-// import BaederLocations from './library/berlinerBaeder.geojson';
+
+/* NPM-Module werden ohne Pfad (nur mit Modulname) importiert,
+üblicherweise vor den selbstgeschriebenen Modulen. (Auch die
+Dateiendung fällt weg, hier hat das Modul .js im Namen(!). ) */
+// import length from 'length.js';
 
 // ################## aus standorte.jsx #########################
 import dynamic from 'next/dynamic';
@@ -57,6 +61,9 @@ export default function baeder({ grusz, time, baederWeb }) {
     <Layout title="Baden gehen... " description="">
       <div className="site-main">
         {grusz} - es ist {time}
+        <br />
+        Ma&szlig;stab:
+        {/* console.log(length(200, 'm').to('in')) */}
         <br />
         <br />
         {/* {JSON.stringify(news)} */}

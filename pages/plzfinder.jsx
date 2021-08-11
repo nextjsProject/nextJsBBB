@@ -14,6 +14,13 @@ const PLZFinder = dynamic(() => import('@/components/PLZFinder'), {
 });
 // ############ Ende aus Standorte.jsx ###################
 
+
+const plzDataB = require('../library/zipcodes.berlin.json');
+console.log(plzDataB);
+
+const plzDataD = require('../library/zipcodes.de.json');
+console.log(plzDataB);
+
 export default function Map() {
   // Test Kartenintegration
   // für Auslese des Eingabefeld-Inhalts
@@ -62,7 +69,7 @@ export default function Map() {
   return (
     <Layout title="PLZ-Suche mit Markierung des Ortes in der Karte">
       <div className="intro">
-        <p>
+        <p className="bbezirke-svg">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, odit
           dicta neque molestiae et optio cum esse incidunt voluptates ad! Sit
           iusto vero dolores aliquam quas, molestiae quos quae aliquid provident
@@ -70,9 +77,20 @@ export default function Map() {
           Aspernatur assumenda magnam veniam inventore voluptatum? Doloremque
           cumque voluptatem iusto totam repellendus!
         </p>
-      </div>
-      <PLZFinder />
 
+        {/* 3 Lösungen zum Einbinden einer svg: */}
+          {/* <!-- Object mit Fallback-Lösung, wenn SVG nicht geladen werden kann --> */}
+          <object id="berlinerbezirke" type="image/svg+xml"
+          data="../img/berlin-mit-stadtteilgrenzen_epsg3857_3.svg"
+          >
+          <img src="../img/logo-bildteil_alt.jpg" alt="Alternatives Bild" />
+        </object>
+
+        <embed id="berlinerbezirke"
+          src="../img/berlin-mit-stadtteilgrenzen_epsg3857_3.svg"
+        ></embed>
+
+      <PLZFinder />
       {/* Ausgabe der Karte in ein div
       http://www.dynamicdrive.com/dynamicindex17/ajaxcontent.htm
       */}
@@ -106,6 +124,7 @@ export default function Map() {
             );
           }
         )}
+      </div>
       </div>
     </Layout>
   );

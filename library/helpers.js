@@ -1,14 +1,8 @@
 /*
-zufällige Anordnung von Zeichen einer Zeichenfolge bzw. von ganzen Zeichenfolgen
-Source: https://www.30secondsofcode.org/js/s/shuffle
+Umrechner für Fahrenheit in Grad Celsius
 */
-export function shuffle([...arr]) {
-  let m = arr.length;
-  while (m) {
-    const i = Math.floor(Math.random() * m--);
-    [arr[m], arr[i]] = [arr[i], arr[m]];
-  }
-  return arr;
+export function fahrenheitToCelsius(fahrenheit) {
+  return ((fahrenheit - 32) * 5) / 9;
 }
 
 /* 
@@ -45,11 +39,24 @@ export function getDistance(lat1, lon1, lat2, lon2, unit = 'K') {
   return dist;
 }
 
+/*
+zufällige Anordnung von Zeichen einer Zeichenfolge bzw. von ganzen Zeichenfolgen
+Source: https://www.30secondsofcode.org/js/s/shuffle
+*/
+export function shuffle([...arr]) {
+  let m = arr.length;
+  while (m) {
+    const i = Math.floor(Math.random() * m--);
+    [arr[m], arr[i]] = [arr[i], arr[m]];
+  }
+  return arr;
+}
+
 /* 
 Ersetzen von Zeichen in Strings 
 */
 export function replace(str, find, replace) {
-  var escapedFind = find.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, '\\$1');
+  var escapedFind = find.replace(/([.*+?^=!:${}()|[\]/\\])/g, '\\$1');
   return str.replace(new RegExp(escapedFind, 'g'), replace);
 }
 

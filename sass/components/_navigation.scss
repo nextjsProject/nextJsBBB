@@ -93,6 +93,7 @@
   .topnav.responsive a {
     float: none;
     display: block;
+    border-bottom: 0.1rem dashed var(--hover-color);
     text-align: left;
     position: relative;
     top: 0;
@@ -112,7 +113,6 @@
 
   .topnav a:hover {
     background-color: var(--hover-color);
-    color: var(--bg-black);
   }
 }
 
