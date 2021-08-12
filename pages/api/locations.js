@@ -1,8 +1,8 @@
-/* Datenquelle:  https://github.com/zauberware/postal-codes-json-xml-csv
- */
-// im Browswer testen:
-// localhost:3000/api/locations?search=10999
-const allLocations = require('../../library/zipcodes.de.json');
+/* 
+Datenquelle:  https://github.com/zauberware/postal-codes-json-xml-csv
+zum Testen: localhost:3000/api/locations?search=10999
+*/
+const allLocations = require('../../library/zipcodes.berlin.json');
 
 export default function zipcode(req, res) {
   const { search = '' } = req.query;
@@ -11,13 +11,11 @@ export default function zipcode(req, res) {
 }
 
 function getLocations(searchTerm) {
-  /*  Datensatz filtern, zipcode ist ein String und kein Integer, da
-    PLZ mit 0 beginnen können. startsWith ist eine String-Methode, die
-    prüft, ob ein String mit einem anderen String beginnt, und entsprechend
-    true oder false zurückgibt.
-    Bei der Ortssuche wird ein Regulärer Ausdruck verwendet, um nicht nur den
-    Anfang des Strings zu suchen und dadurch auch Stadteile wie "Berlin Kreuzberg"
-    oder Orte wie "Lutherstadt Wittenberg" zu finden. 
+  /* 
+  Datensatz filtern, zipcode ist ein String und kein Integer, 
+  da PLZ mit 0 beginnen können. startsWith ist eine String-Methode, 
+  die prüft, ob ein String mit einem anderen String beginnt, 
+  und entsprechend true oder false zurückgibt.
 */
 
   const regExp = new RegExp(searchTerm, 'i');

@@ -14,7 +14,7 @@ erzeugt werden können, da Windows z.B. Backslash (\) statt Slash (/) für
 Verzeichnisebenen nutzt.
 __dirname ist eine Konstante, die den Pfad der aktuellen Datei enthält.
 */
-const allLocations = require(path.join(__dirname, "zipcodes.de.json"));
+const allLocations = require(path.join(__dirname, "zipcodes.berlin.json"));
 
 const host = "localhost";
 const port = 8000;
