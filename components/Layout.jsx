@@ -2,8 +2,7 @@ import Head from 'next/head';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
-import Document, { NextScript } from 'next/document';
-import NaviScript from '../library/naviscript';
+import { NextScript } from 'next/document';
 
 // diese function sollte eigentlich besser SEO heiszen
 export default function Layout({ description, title, children }) {
@@ -51,7 +50,7 @@ export default function Layout({ description, title, children }) {
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        ></meta>{' '}
+        />
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="stylesheet"
@@ -61,7 +60,8 @@ export default function Layout({ description, title, children }) {
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
-            __html: `hier kann JavaScript rein`,
+            // hier kann JavaScript eingefügt werden
+            __html: ``,
           }}
         />
       </Head>

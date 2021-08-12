@@ -11,10 +11,9 @@ export default function Header({ title }) {
       <div className="site-header__logo">
         <div className="site-header__logo-bild">
           <img
+            // +++ !!! unbedingt nochmal ändern -> es gibt bessere Lademöglichkeiten !!! +++
             src="/img/logo-bildteil.jpg"
             srcSet="/img/logo-bildteil.jpg 1x, /img/logo-bildteil.jpg 2x"
-            // verzögertes Laden für besseren Bildaufbau und weniger Speichernutzung
-            // width und height für den Browser angeben -> Berechnung Seitenverhältnis
             width="150vw"
             height="100%"
             loading="lazy"
